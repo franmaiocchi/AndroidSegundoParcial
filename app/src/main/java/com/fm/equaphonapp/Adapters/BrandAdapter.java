@@ -13,9 +13,12 @@ import com.fm.equaphonapp.R;
 
 import java.util.ArrayList;
 
-public class BrandAdapter extends RecyclerView.Adapter<BrandAdapter.BrandViewHolder>
+public class BrandAdapter
+        extends RecyclerView.Adapter<BrandAdapter.BrandViewHolder>
+        implements View.OnClickListener
 {
     private ArrayList<Brand> data;
+    private View.OnClickListener listener;
 
     public static class BrandViewHolder extends RecyclerView.ViewHolder
     {
@@ -68,6 +71,8 @@ public class BrandAdapter extends RecyclerView.Adapter<BrandAdapter.BrandViewHol
         View itemView = LayoutInflater.from(viewGroup.getContext()).
                 inflate(R.layout.brand_item, viewGroup, false);
 
+        itemView.setOnClickListener(this);
+
         BrandViewHolder vh = new BrandViewHolder(itemView);
 
         return vh;
@@ -84,5 +89,14 @@ public class BrandAdapter extends RecyclerView.Adapter<BrandAdapter.BrandViewHol
     public int getItemCount()
     {
         return data.size();
+    }
+
+    public void setOnClickListener(View.OnClickListener listener) {
+        this.listener = listener;
+    }
+    @Override
+    public void onClick(View view) {
+        if(listener != null)
+            listener.onClick(view);
     }
 }

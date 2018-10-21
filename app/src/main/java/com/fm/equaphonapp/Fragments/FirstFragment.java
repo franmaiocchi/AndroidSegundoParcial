@@ -13,10 +13,12 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.fm.equaphonapp.Adapters.BrandAdapter;
 import com.fm.equaphonapp.Clases.Brand;
 import com.fm.equaphonapp.Decoration.BrandItemDecoration;
+import com.fm.equaphonapp.NavigationHost;
 import com.fm.equaphonapp.R;
 
 import java.util.ArrayList;
@@ -29,6 +31,7 @@ public class FirstFragment extends Fragment
 {
     private RecyclerView recView;
     private ArrayList<Brand> data;
+    private BrandAdapter adapter;
 
     public FirstFragment()
     {
@@ -57,7 +60,16 @@ public class FirstFragment extends Fragment
         recView = view.findViewById(R.id.recView);
         recView.setHasFixedSize(true);
         recView.setLayoutManager(new GridLayoutManager(getContext(), 1, LinearLayoutManager.VERTICAL, false));
-        BrandAdapter adapter = new BrandAdapter(data);
+        adapter = new BrandAdapter(data);
+
+        adapter.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                ((NavigationHost) getActivity()).navigateTo(new SecondFragment(), true); // Navigate to the next Fragment
+            }
+        });
         recView.setAdapter(adapter);
 
         int sidePadding = getResources().getDimensionPixelSize(R.dimen.brand_card_side_padding);

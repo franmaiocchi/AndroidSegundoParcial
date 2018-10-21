@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="brand_card_side_padding">8dp</dimen>
+    <dimen name="brand_card_item_padding">4dp</dimen>
+    <dimen name="brand_card_image_height">108dp</dimen>
+</resources>

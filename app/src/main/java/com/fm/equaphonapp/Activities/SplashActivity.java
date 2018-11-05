@@ -36,8 +36,6 @@ public class SplashActivity extends AppCompatActivity
 
         asyncTask = new MyAsyncTask();
         asyncTask.execute();
-
-
     }
 
     private void tareaLarga()

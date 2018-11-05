@@ -18,8 +18,11 @@ import android.widget.Toast;
 import com.fm.equaphonapp.Adapters.BrandAdapter;
 import com.fm.equaphonapp.Clases.Brand;
 import com.fm.equaphonapp.Decoration.BrandItemDecoration;
+import com.fm.equaphonapp.Messages.MessageEvent;
 import com.fm.equaphonapp.NavigationHost;
 import com.fm.equaphonapp.R;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 
@@ -43,7 +46,7 @@ public class FirstFragment extends Fragment
                              Bundle savedInstanceState)
     {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_first, container, false);
+        final View view = inflater.inflate(R.layout.fragment_first, container, false);
 
         // Datos iniciales, despues se cargaran desde la base de datos
         data = new ArrayList<Brand>();
@@ -67,6 +70,8 @@ public class FirstFragment extends Fragment
             @Override
             public void onClick(View v)
             {
+                String mensaje = (data.get(recView.getChildAdapterPosition(v)).getName());
+                EventBus.getDefault().postSticky(new MessageEvent(mensaje));
                 ((NavigationHost) getActivity()).navigateTo(new SecondFragment(), true); // Navigate to the next Fragment
             }
         });

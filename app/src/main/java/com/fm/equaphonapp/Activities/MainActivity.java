@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements NavigationHost
 
         transaction.commit();
     }
+
 }
 
 

@@ -11,6 +11,16 @@
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
     </style>
 
+    <style name="Theme.STS" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/stsPrimary</item>
+        <item name="colorPrimaryDark">@color/stsPDark</item>
+        <item name="colorAccent">@color/stsPLight</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="colorControlActivated">@color/colorControlActivated</item>
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
+    </style>
+
     <style name="Widget.Equaphon.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="hintTextAppearance">@style/TextAppearance.Equaphon.TextInputLayout.HintText</item>
         <item name="android:paddingBottom">8dp</item>

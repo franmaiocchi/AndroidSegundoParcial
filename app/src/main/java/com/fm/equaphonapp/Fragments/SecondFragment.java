@@ -25,6 +25,7 @@ import com.fm.equaphonapp.Clases.Brand;
 import com.fm.equaphonapp.Clases.STS;
 import com.fm.equaphonapp.Decoration.BrandItemDecoration;
 import com.fm.equaphonapp.Messages.MessageEvent;
+import com.fm.equaphonapp.NavigationHost;
 import com.fm.equaphonapp.R;
 
 import org.greenrobot.eventbus.EventBus;
@@ -54,7 +55,6 @@ public class SecondFragment extends Fragment
     @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
     public void onEvent(MessageEvent event)
     {
-        this.brand = event.message;
     }
 
     @Override
@@ -62,6 +62,8 @@ public class SecondFragment extends Fragment
         EventBus.getDefault().unregister(this);
         super.onStop();
     }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -135,6 +137,17 @@ public class SecondFragment extends Fragment
         int sidePadding = getResources().getDimensionPixelSize(R.dimen.brand_card_side_padding);
         int itemPadding = getResources().getDimensionPixelSize(R.dimen.brand_card_item_padding);
         recView.addItemDecoration(new BrandItemDecoration(sidePadding, itemPadding));
+        
+        adapter.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                String mensaje = (data.get(recView.getChildAdapterPosition(v)).getName());
+                EventBus.getDefault().postSticky(new MessageEvent(mensaje));
+                ((NavigationHost) getActivity()).navigateTo(new DetailFragment(), true); // Navigate to the next Fragment
+            }
+        });
 
         return view;
     }

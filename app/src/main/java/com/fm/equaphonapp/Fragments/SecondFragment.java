@@ -20,18 +20,23 @@ import android.widget.Toast;
 
 
 import com.fm.equaphonapp.Adapters.BrandAdapter;
+import com.fm.equaphonapp.Adapters.ProductAdapter;
 import com.fm.equaphonapp.Adapters.STSAdapter;
 import com.fm.equaphonapp.Clases.Brand;
+import com.fm.equaphonapp.Clases.Product;
 import com.fm.equaphonapp.Clases.STS;
 import com.fm.equaphonapp.Decoration.BrandItemDecoration;
 import com.fm.equaphonapp.Messages.MessageEvent;
 import com.fm.equaphonapp.NavigationHost;
 import com.fm.equaphonapp.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import java.security.ProtectionDomain;
 import java.util.ArrayList;
 
 
@@ -41,9 +46,9 @@ import java.util.ArrayList;
 public class SecondFragment extends Fragment
 {
     private String brand;
-    private ArrayList<STS> data;
+    private ArrayList<Product> data;
     private RecyclerView recView;
-    private STSAdapter adapter;
+    private ProductAdapter adapter;
 
     @Override
     public void onStart() {
@@ -93,34 +98,34 @@ public class SecondFragment extends Fragment
 
         if (this.brand.equals("Powersoft"))
         {
-            data = new ArrayList<STS>();
-            data.add(new STS("K2", R.drawable.k2));
-            data.add(new STS("K3", R.drawable.k3));
-            data.add(new STS("K6", R.drawable.k6));
-            data.add(new STS("K10", R.drawable.k10));
-            data.add(new STS("K20", R.drawable.k20));
-            data.add(new STS("M14D", R.drawable.m14d));
-            data.add(new STS("M20D", R.drawable.m20d));
-            data.add(new STS("M30D", R.drawable.m30d));
-            data.add(new STS("M28Q", R.drawable.m28q));
-            data.add(new STS("M50Q", R.drawable.m50q));
-            data.add(new STS("X4", R.drawable.x4));
-            data.add(new STS("X8", R.drawable.x8));
+            data = new ArrayList<Product>();
+            data.add(new Product("K2", R.drawable.k2));
+            data.add(new Product("K3", R.drawable.k3));
+            data.add(new Product("K6", R.drawable.k6));
+            data.add(new Product("K10", R.drawable.k10));
+            data.add(new Product("K20", R.drawable.k20));
+            data.add(new Product("M14D", R.drawable.m14d));
+            data.add(new Product("M20D", R.drawable.m20d));
+            data.add(new Product("M30D", R.drawable.m30d));
+            data.add(new Product("M28Q", R.drawable.m28q));
+            data.add(new Product("M50Q", R.drawable.m50q));
+            data.add(new Product("X4", R.drawable.x4));
+            data.add(new Product("X8", R.drawable.x8));
         }
         else
         {
-            data = new ArrayList<STS>();
-            data.add(new STS("Cantata", R.drawable.cantata));
-            data.add(new STS("Coax12", R.drawable.coax12));
-            data.add(new STS("Coax15", R.drawable.coax15));
-            data.add(new STS("Concerto SUB", R.drawable.concerto));
-            data.add(new STS("infraSUB", R.drawable.infra));
-            data.add(new STS("miniSUB", R.drawable.mini));
-            data.add(new STS("Sonata", R.drawable.sonata));
-            data.add(new STS("Concerto TOP", R.drawable.top));
-            data.add(new STS("Linea V10", R.drawable.v10));
-            data.add(new STS("Linea V10i", R.drawable.v10i));
-            data.add(new STS("Linea V5", R.drawable.v5));
+            data = new ArrayList<Product>();
+            data.add(new Product("Cantata", R.drawable.cantata));
+            data.add(new Product("Coax12", R.drawable.coax12));
+            data.add(new Product("Coax15", R.drawable.coax15));
+            data.add(new Product("Concerto SUB", R.drawable.concerto));
+            data.add(new Product("infraSUB", R.drawable.infra));
+            data.add(new Product("miniSUB", R.drawable.mini));
+            data.add(new Product("Sonata", R.drawable.sonata));
+            data.add(new Product("Concerto TOP", R.drawable.top));
+            data.add(new Product("Linea V10", R.drawable.v10));
+            data.add(new Product("Linea V10i", R.drawable.v10i));
+            data.add(new Product("Linea V5", R.drawable.v5));
         }
 
         // Set up the toolbar
@@ -130,7 +135,7 @@ public class SecondFragment extends Fragment
         recView = view.findViewById(R.id.recView);
         recView.setHasFixedSize(true);
         recView.setLayoutManager(new GridLayoutManager(getContext(),2));
-        adapter = new STSAdapter(data);
+        adapter = new ProductAdapter(data);
 
         recView.setAdapter(adapter);
 
@@ -144,6 +149,13 @@ public class SecondFragment extends Fragment
             public void onClick(View v)
             {
                 String mensaje = (data.get(recView.getChildAdapterPosition(v)).getName());
+
+                // Prueba de la firebase
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("pueba");
+
+                myRef.setValue(mensaje);
+
                 EventBus.getDefault().postSticky(new MessageEvent(mensaje));
                 ((NavigationHost) getActivity()).navigateTo(new DetailFragment(), true); // Navigate to the next Fragment
             }

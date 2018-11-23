@@ -9,24 +9,23 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.fm.equaphonapp.Clases.Product;
-import com.fm.equaphonapp.Clases.STS;
 import com.fm.equaphonapp.R;
 
 import java.util.ArrayList;
 
-public class STSAdapter
-        extends RecyclerView.Adapter<STSAdapter.STSViewHolder>
+public class ProductAdapter
+        extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder>
         implements View.OnClickListener
 {
     private ArrayList<Product> data;
     private View.OnClickListener listener;
 
-    public static class STSViewHolder extends RecyclerView.ViewHolder
+    public static class ProductViewHolder extends RecyclerView.ViewHolder
     {
         private TextView lblSTSName;
         private ImageView imgSTS;
 
-        public STSViewHolder(@NonNull View itemView)
+        public ProductViewHolder(@NonNull View itemView)
         {
             super(itemView);
 
@@ -60,30 +59,30 @@ public class STSAdapter
         }
     }
 
-    public STSAdapter(ArrayList<Product> data)
+    public ProductAdapter(ArrayList<Product> data)
     {
         this.data = data;
     }
     // Create new views (invoked by the layout manager)
     @NonNull
     @Override
-    public STSAdapter.STSViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i)
+    public ProductAdapter.ProductViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i)
     {
         View itemView = LayoutInflater.from(viewGroup.getContext()).
                 inflate(R.layout.sts_item, viewGroup, false);
 
         itemView.setOnClickListener(this);
 
-        STSViewHolder vh = new STSViewHolder(itemView);
+        ProductAdapter.ProductViewHolder vh = new ProductAdapter.ProductViewHolder(itemView);
 
         return vh;
     }
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(@NonNull STSAdapter.STSViewHolder STSViewHolder, int pos)
+    public void onBindViewHolder(@NonNull ProductAdapter.ProductViewHolder ProductViewHolder, int pos)
     {
         Product item = data.get(pos);
-        STSViewHolder.bindSTS(item);
+        ProductViewHolder.bindSTS(item);
     }
 
     @Override

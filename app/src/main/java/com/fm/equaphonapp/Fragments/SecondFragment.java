@@ -1,13 +1,10 @@
 package com.fm.equaphonapp.Fragments;
 
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.view.ContextThemeWrapper;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -15,16 +12,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
 
 
-import com.fm.equaphonapp.Adapters.BrandAdapter;
 import com.fm.equaphonapp.Adapters.ProductAdapter;
-import com.fm.equaphonapp.Adapters.STSAdapter;
-import com.fm.equaphonapp.Clases.Brand;
 import com.fm.equaphonapp.Clases.Product;
-import com.fm.equaphonapp.Clases.STS;
 import com.fm.equaphonapp.Decoration.BrandItemDecoration;
 import com.fm.equaphonapp.Messages.MessageEvent;
 import com.fm.equaphonapp.NavigationHost;
@@ -36,7 +27,6 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import java.security.ProtectionDomain;
 import java.util.ArrayList;
 
 

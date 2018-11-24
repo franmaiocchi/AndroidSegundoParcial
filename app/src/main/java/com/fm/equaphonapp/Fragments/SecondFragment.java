@@ -20,8 +20,10 @@ import com.fm.equaphonapp.Decoration.BrandItemDecoration;
 import com.fm.equaphonapp.Messages.MessageEvent;
 import com.fm.equaphonapp.NavigationHost;
 import com.fm.equaphonapp.R;
+import com.fm.equaphonapp.ViewHolders.ProductViewHolder;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -140,11 +142,11 @@ public class SecondFragment extends Fragment
             {
                 String mensaje = (data.get(recView.getChildAdapterPosition(v)).getName());
 
-                // Prueba de la firebase
+/*                // Prueba de la firebase
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference myRef = database.getReference("pueba");
 
-                myRef.setValue(mensaje);
+                myRef.setValue(mensaje);*/
 
                 EventBus.getDefault().postSticky(new MessageEvent(mensaje));
                 ((NavigationHost) getActivity()).navigateTo(new DetailFragment(), true); // Navigate to the next Fragment

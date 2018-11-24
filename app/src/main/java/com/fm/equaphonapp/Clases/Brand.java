@@ -6,6 +6,11 @@ public class Brand
     private String description;
     private int image;
 
+    public Brand()
+    {
+        // Constructor vacio
+    }
+
     public Brand(String name, String description, int image)
     {
         this.name = name;

@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -96,7 +97,25 @@ public class FirstFragment extends Fragment
                         View view = LayoutInflater.from(parent.getContext()).
                                 inflate(R.layout.brand_item, parent, false);
 
-                        return new BrandViewHolder(view);
+                        BrandViewHolder viewHolder = new BrandViewHolder(view);
+
+                        viewHolder.setOnClickListener(new BrandViewHolder.ClickListener()
+                        {
+                            @Override
+                            public void onItemClick(View view, int position)
+                            {
+                                Brand item = (Brand) adapter.getItem(position);
+                                String mensaje = item.getName();
+                                EventBus.getDefault().postSticky(new MessageEvent(mensaje));
+                                ((NavigationHost) getActivity()).navigateTo(new SecondFragment(), true); // Navigate to the next Fragment
+                            }
+                            @Override
+                            public void onItemLongClick(View view, int position)
+                            {
+                            }
+                        });
+
+                        return viewHolder;
                     }
 
                     @Override
@@ -118,6 +137,7 @@ public class FirstFragment extends Fragment
             }
         });*/
         recView.setAdapter(adapter);
+
 
         int sidePadding = getResources().getDimensionPixelSize(R.dimen.brand_card_side_padding);
         int itemPadding = getResources().getDimensionPixelSize(R.dimen.brand_card_item_padding);

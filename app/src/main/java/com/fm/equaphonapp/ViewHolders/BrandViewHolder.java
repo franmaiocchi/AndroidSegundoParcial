@@ -9,11 +9,11 @@ import android.widget.TextView;
 import com.fm.equaphonapp.Clases.Brand;
 import com.fm.equaphonapp.R;
 
-public class BrandViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
+public class BrandViewHolder extends RecyclerView.ViewHolder
 {
     private TextView lblBrandName;
     private ImageView imgBrand;
-    private View.OnClickListener listener;
+    private BrandViewHolder.ClickListener listener;
 
     public BrandViewHolder(@NonNull View itemView)
     {
@@ -21,6 +21,15 @@ public class BrandViewHolder extends RecyclerView.ViewHolder implements View.OnC
 
         lblBrandName = itemView.findViewById(R.id.lblBrandName);
         imgBrand = itemView.findViewById(R.id.imgBrand);
+
+        itemView.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                listener.onItemClick(v, getAdapterPosition());
+            }
+        });
     }
 
     public ImageView getImgBrand()
@@ -48,12 +57,14 @@ public class BrandViewHolder extends RecyclerView.ViewHolder implements View.OnC
         imgBrand.setImageResource(item.getImage());
     }
 
-    public void setOnClickListener(View.OnClickListener listener) {
-        this.listener = listener;
+    //Interface to send callbacks...
+    public interface ClickListener{
+        public void onItemClick(View view, int position);
+        public void onItemLongClick(View view, int position);
     }
-    @Override
-    public void onClick(View view) {
-        if(listener != null)
-            listener.onClick(view);
+
+    public void setOnClickListener(BrandViewHolder.ClickListener clickListener){
+        listener = clickListener;
     }
+
 }

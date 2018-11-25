@@ -118,5 +118,4 @@ public class DetailFragment extends Fragment
 
         viewPager.setAdapter(adapter);
     }
-
 }

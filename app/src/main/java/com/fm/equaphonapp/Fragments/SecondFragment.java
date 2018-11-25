@@ -17,16 +17,12 @@ import android.view.ViewGroup;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.fm.equaphonapp.Adapters.ProductAdapter;
-import com.fm.equaphonapp.Clases.Brand;
 import com.fm.equaphonapp.Clases.Product;
 import com.fm.equaphonapp.Decoration.BrandItemDecoration;
 import com.fm.equaphonapp.Messages.MessageEvent;
 import com.fm.equaphonapp.NavigationHost;
 import com.fm.equaphonapp.R;
-import com.fm.equaphonapp.ViewHolders.BrandViewHolder;
 import com.fm.equaphonapp.ViewHolders.ProductViewHolder;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
@@ -49,7 +45,8 @@ public class SecondFragment extends Fragment
     private Query query;
 
     @Override
-    public void onStart() {
+    public void onStart()
+    {
         super.onStart();
         adapter.startListening();
     }
@@ -60,13 +57,12 @@ public class SecondFragment extends Fragment
     }
 
     @Override
-    public void onStop() {
+    public void onStop()
+    {
         EventBus.getDefault().unregister(this);
         adapter.stopListening();
         super.onStop();
     }
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -100,20 +96,6 @@ public class SecondFragment extends Fragment
                     .getReference()
                     .child(this.brand)
                     .limitToLast(50);
-
-/*            data = new ArrayList<Product>();
-            data.add(new Product("K2", R.drawable.k2));
-            data.add(new Product("K3", R.drawable.k3));
-            data.add(new Product("K6", R.drawable.k6));
-            data.add(new Product("K10", R.drawable.k10));
-            data.add(new Product("K20", R.drawable.k20));
-            data.add(new Product("M14D", R.drawable.m14d));
-            data.add(new Product("M20D", R.drawable.m20d));
-            data.add(new Product("M30D", R.drawable.m30d));
-            data.add(new Product("M28Q", R.drawable.m28q));
-            data.add(new Product("M50Q", R.drawable.m50q));
-            data.add(new Product("X4", R.drawable.x4));
-            data.add(new Product("X8", R.drawable.x8));*/
         }
         else
         {
@@ -121,7 +103,6 @@ public class SecondFragment extends Fragment
                     .getReference()
                     .child("STS")
                     .limitToLast(50);
-
         }
 
         // Set up the toolbar

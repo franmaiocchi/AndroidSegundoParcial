@@ -74,7 +74,7 @@ public class SecondFragment extends Fragment
         if(stickyEvent != null) {
             // "Consume" the sticky event
             EventBus.getDefault().removeStickyEvent(stickyEvent);
-            this.brand = stickyEvent.message;
+            this.brand = stickyEvent.firstMessage;
         }
 
 /*        // create ContextThemeWrapper from the original Activity Context with the custom theme
@@ -136,7 +136,7 @@ public class SecondFragment extends Fragment
                     {
                         Product item = (Product) adapter.getItem(position);
                         String mensaje = item.getName();
-                        EventBus.getDefault().postSticky(new MessageEvent(mensaje));
+                        EventBus.getDefault().postSticky(new MessageEvent(brand, mensaje));
                         ((NavigationHost) getActivity()).navigateTo(new DetailFragment(), true); // Navigate to the next Fragment
                     }
                 });

@@ -41,6 +41,7 @@ public class DescriptionFragment extends android.support.v4.app.Fragment
                              Bundle savedInstanceState)
     {
         String modelo = getArguments().getString("MODELO");
+        String brand = getArguments().getString("BRAND");
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_description, container, false);
 
@@ -49,7 +50,7 @@ public class DescriptionFragment extends android.support.v4.app.Fragment
 
         DatabaseReference dbDescription = FirebaseDatabase.getInstance().getReference()
                 .child("description-fragment")
-                .child("STS")
+                .child(brand)
                 .child(modelo);
 
         ValueEventListener eventListener = new ValueEventListener()

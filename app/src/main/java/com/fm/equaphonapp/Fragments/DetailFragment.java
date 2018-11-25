@@ -28,6 +28,7 @@ import org.greenrobot.eventbus.ThreadMode;
 public class DetailFragment extends Fragment
 {
     private String model;
+    private String brand;
     private ViewPager viewPager;
     private TabLayout tabLayout;
 
@@ -47,7 +48,8 @@ public class DetailFragment extends Fragment
     @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
     public void onEvent(MessageEvent event)
     {
-        this.model = event.message;
+        this.brand = event.firstMessage;
+        this.model = event.secondMessage;
         EventBus.getDefault().removeStickyEvent(event);
     }
 
@@ -71,7 +73,8 @@ public class DetailFragment extends Fragment
         if(stickyEvent != null) {
             // "Consume" the sticky event
             EventBus.getDefault().removeStickyEvent(stickyEvent);
-            this.model = stickyEvent.message;
+            this.brand = stickyEvent.firstMessage;
+            this.model = stickyEvent.secondMessage;
         }
 
         viewPager = view.findViewById(R.id.viewpager);
@@ -105,6 +108,7 @@ public class DetailFragment extends Fragment
     {
         Bundle bundle = new Bundle();
         bundle.putString("MODELO", modelo);
+        bundle.putString("BRAND", brand);
         ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
         LayoutInflater inflator = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 

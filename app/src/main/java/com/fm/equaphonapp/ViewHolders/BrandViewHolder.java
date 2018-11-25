@@ -60,7 +60,6 @@ public class BrandViewHolder extends RecyclerView.ViewHolder
     //Interface to send callbacks...
     public interface ClickListener{
         public void onItemClick(View view, int position);
-        public void onItemLongClick(View view, int position);
     }
 
     public void setOnClickListener(BrandViewHolder.ClickListener clickListener){

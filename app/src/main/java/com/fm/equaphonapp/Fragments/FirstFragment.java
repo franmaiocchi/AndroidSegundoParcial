@@ -58,17 +58,6 @@ public class FirstFragment extends Fragment
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_first, container, false);
 
-/*        // Datos iniciales, despues se cargaran desde la base de datos
-        data = new ArrayList<Brand>();
-        data.add(new Brand("Powersoft", "",  R.drawable.powersoft));
-        data.add(new Brand("STS", "", R.drawable.touringseries));
-        data.add(new Brand("beyerdynamic", "", R.drawable.beyer));
-        data.add(new Brand("DPA", "", R.drawable.dpa));
-        data.add(new Brand("Genelec", "", R.drawable.genelec));
-
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-        mDatabase.child("brands").setValue(data);*/
-
         // Set up the toolbar
         setUpToolbar(view);
 
@@ -109,12 +98,7 @@ public class FirstFragment extends Fragment
                                 EventBus.getDefault().postSticky(new MessageEvent(mensaje));
                                 ((NavigationHost) getActivity()).navigateTo(new SecondFragment(), true); // Navigate to the next Fragment
                             }
-                            @Override
-                            public void onItemLongClick(View view, int position)
-                            {
-                            }
                         });
-
                         return viewHolder;
                     }
 
@@ -125,19 +109,7 @@ public class FirstFragment extends Fragment
                     }
                 };
 
-
-/*        adapter.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                String mensaje = (data.get(recView.getChildAdapterPosition(v)).getName());
-                EventBus.getDefault().postSticky(new MessageEvent(mensaje));
-                ((NavigationHost) getActivity()).navigateTo(new SecondFragment(), true); // Navigate to the next Fragment
-            }
-        });*/
         recView.setAdapter(adapter);
-
 
         int sidePadding = getResources().getDimensionPixelSize(R.dimen.brand_card_side_padding);
         int itemPadding = getResources().getDimensionPixelSize(R.dimen.brand_card_item_padding);
@@ -161,7 +133,7 @@ public class FirstFragment extends Fragment
     @Override
     public void onStop() {
         super.onStop();
-        //adapter.stopListening();
+        adapter.stopListening();
     }
 
     private void setUpToolbar(View view) {
@@ -178,5 +150,4 @@ public class FirstFragment extends Fragment
         menuInflater.inflate(R.menu.menu_toolbar, menu);
         super.onCreateOptionsMenu(menu, menuInflater);
     }
-
 }

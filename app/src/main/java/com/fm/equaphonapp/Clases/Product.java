@@ -5,6 +5,11 @@ public class Product
     private String name;
     private int img;
 
+    public Product()
+    {
+        // Constructor vacio
+    }
+
     public Product(String name, int img)
     {
         setName(name);

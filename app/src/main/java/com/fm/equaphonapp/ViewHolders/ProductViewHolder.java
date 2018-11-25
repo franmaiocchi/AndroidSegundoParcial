@@ -13,6 +13,7 @@ public class ProductViewHolder extends RecyclerView.ViewHolder
 {
     private TextView lblProductName;
     private ImageView imgProduct;
+    private ProductViewHolder.ClickListener listener;
 
     public ProductViewHolder(@NonNull View itemView)
     {
@@ -20,30 +21,49 @@ public class ProductViewHolder extends RecyclerView.ViewHolder
 
         lblProductName = itemView.findViewById(R.id.lblSTSName);
         imgProduct = itemView.findViewById(R.id.imgSTS);
+
+        itemView.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                listener.onItemClick(v, getAdapterPosition());
+            }
+        });
     }
 
-    public ImageView getImgSTS()
+    public ImageView getImgProduct()
     {
         return imgProduct;
     }
 
-    public TextView getLblSTSName()
+    public TextView getLblProductNameName()
     {
         return lblProductName;
     }
 
-    public void setImgSTS(ImageView imgSTS)
+    public void setImgProduct(ImageView imgProduct)
     {
-        this.imgProduct = imgSTS;
+        this.imgProduct = imgProduct;
     }
 
-    public void setLblSTSName(TextView lblSTSName)
+    public void setLblProductNameName(TextView lblSTSName)
     {
-        this.lblProductName = lblSTSName;
+        this.lblProductName = lblProductName;
     }
-    public void bindSTS(Product item)
+    public void bindProduct(Product item)
     {
         lblProductName.setText(item.getName());
         imgProduct.setImageResource(item.getImg());
     }
+
+    //Interface to send callbacks...
+    public interface ClickListener{
+        public void onItemClick(View view, int position);
+    }
+
+    public void setOnClickListener(ProductViewHolder.ClickListener clickListener){
+        listener = clickListener;
+    }
+
 }

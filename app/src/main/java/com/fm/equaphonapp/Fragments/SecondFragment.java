@@ -2,6 +2,7 @@ package com.fm.equaphonapp.Fragments;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
@@ -14,12 +15,16 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.fm.equaphonapp.Adapters.ProductAdapter;
+import com.fm.equaphonapp.Clases.Brand;
 import com.fm.equaphonapp.Clases.Product;
 import com.fm.equaphonapp.Decoration.BrandItemDecoration;
 import com.fm.equaphonapp.Messages.MessageEvent;
 import com.fm.equaphonapp.NavigationHost;
 import com.fm.equaphonapp.R;
+import com.fm.equaphonapp.ViewHolders.BrandViewHolder;
 import com.fm.equaphonapp.ViewHolders.ProductViewHolder;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -40,14 +45,14 @@ public class SecondFragment extends Fragment
     private String brand;
     private ArrayList<Product> data;
     private RecyclerView recView;
-    private ProductAdapter adapter;
+    private FirebaseRecyclerAdapter adapter;
+    private Query query;
 
     @Override
     public void onStart() {
         super.onStart();
-        EventBus.getDefault().register(this);
+        adapter.startListening();
     }
-
     // UI updates must run on MainThread
     @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
     public void onEvent(MessageEvent event)
@@ -57,6 +62,7 @@ public class SecondFragment extends Fragment
     @Override
     public void onStop() {
         EventBus.getDefault().unregister(this);
+        adapter.stopListening();
         super.onStop();
     }
 
@@ -90,7 +96,12 @@ public class SecondFragment extends Fragment
 
         if (this.brand.equals("Powersoft"))
         {
-            data = new ArrayList<Product>();
+            query = FirebaseDatabase.getInstance()
+                    .getReference()
+                    .child(this.brand)
+                    .limitToLast(50);
+
+/*            data = new ArrayList<Product>();
             data.add(new Product("K2", R.drawable.k2));
             data.add(new Product("K3", R.drawable.k3));
             data.add(new Product("K6", R.drawable.k6));
@@ -102,22 +113,15 @@ public class SecondFragment extends Fragment
             data.add(new Product("M28Q", R.drawable.m28q));
             data.add(new Product("M50Q", R.drawable.m50q));
             data.add(new Product("X4", R.drawable.x4));
-            data.add(new Product("X8", R.drawable.x8));
+            data.add(new Product("X8", R.drawable.x8));*/
         }
         else
         {
-            data = new ArrayList<Product>();
-            data.add(new Product("Cantata", R.drawable.cantata));
-            data.add(new Product("Coax12", R.drawable.coax12));
-            data.add(new Product("Coax15", R.drawable.coax15));
-            data.add(new Product("Concerto SUB", R.drawable.concerto));
-            data.add(new Product("infraSUB", R.drawable.infra));
-            data.add(new Product("miniSUB", R.drawable.mini));
-            data.add(new Product("Sonata", R.drawable.sonata));
-            data.add(new Product("Concerto TOP", R.drawable.top));
-            data.add(new Product("Linea V10", R.drawable.v10));
-            data.add(new Product("Linea V10i", R.drawable.v10i));
-            data.add(new Product("Linea V5", R.drawable.v5));
+            query = FirebaseDatabase.getInstance()
+                    .getReference()
+                    .child("STS")
+                    .limitToLast(50);
+
         }
 
         // Set up the toolbar
@@ -125,33 +129,51 @@ public class SecondFragment extends Fragment
 
         // Set up the RecyclerView
         recView = view.findViewById(R.id.recView);
-        recView.setHasFixedSize(true);
+        //recView.setHasFixedSize(true);
         recView.setLayoutManager(new GridLayoutManager(getContext(),2));
-        adapter = new ProductAdapter(data);
+
+        FirebaseRecyclerOptions<Product> options =
+                new FirebaseRecyclerOptions.Builder<Product>().setQuery(query, Product.class).build();
+
+        adapter = new FirebaseRecyclerAdapter<Product, ProductViewHolder>(options)
+        {
+            @NonNull
+            @Override
+            public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
+            {
+                // Create a new instance of the ViewHolder, in this case we are using a custom
+                // layout called R.layout.message for each item
+                View view = LayoutInflater.from(parent.getContext()).
+                        inflate(R.layout.sts_item, parent, false);
+
+                ProductViewHolder viewHolder = new ProductViewHolder(view);
+
+                viewHolder.setOnClickListener(new ProductViewHolder.ClickListener()
+                {
+                    @Override
+                    public void onItemClick(View view, int position)
+                    {
+                        Product item = (Product) adapter.getItem(position);
+                        String mensaje = item.getName();
+                        EventBus.getDefault().postSticky(new MessageEvent(mensaje));
+                        ((NavigationHost) getActivity()).navigateTo(new DetailFragment(), true); // Navigate to the next Fragment
+                    }
+                });
+                return viewHolder;
+            }
+
+            @Override
+            protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull Product model)
+            {
+                holder.bindProduct(model);
+            }
+        };
 
         recView.setAdapter(adapter);
 
         int sidePadding = getResources().getDimensionPixelSize(R.dimen.brand_card_side_padding);
         int itemPadding = getResources().getDimensionPixelSize(R.dimen.brand_card_item_padding);
         recView.addItemDecoration(new BrandItemDecoration(sidePadding, itemPadding));
-        
-        adapter.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                String mensaje = (data.get(recView.getChildAdapterPosition(v)).getName());
-
-/*                // Prueba de la firebase
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("pueba");
-
-                myRef.setValue(mensaje);*/
-
-                EventBus.getDefault().postSticky(new MessageEvent(mensaje));
-                ((NavigationHost) getActivity()).navigateTo(new DetailFragment(), true); // Navigate to the next Fragment
-            }
-        });
 
         return view;
     }
@@ -176,5 +198,4 @@ public class SecondFragment extends Fragment
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
     }
-
 }

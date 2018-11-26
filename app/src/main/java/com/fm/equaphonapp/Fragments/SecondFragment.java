@@ -90,34 +90,10 @@ public class SecondFragment extends Fragment
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_second, container, false);
 
-        if (this.brand.equals("Powersoft"))
-        {
-            query = FirebaseDatabase.getInstance()
-                    .getReference()
-                    .child(this.brand)
-                    .limitToLast(50);
-        }
-        else if(this.brand.equals("beyerdynamic"))
-        {
-            query = FirebaseDatabase.getInstance()
-                    .getReference()
-                    .child(this.brand)
-                    .limitToLast(50);
-        }
-        else if(this.brand.equals("DPA"))
-        {
-            query = FirebaseDatabase.getInstance()
-                    .getReference()
-                    .child(this.brand)
-                    .limitToLast(50);
-        }
-        else
-        {
-            query = FirebaseDatabase.getInstance()
-                    .getReference()
-                    .child("STS")
-                    .limitToLast(50);
-        }
+        query = FirebaseDatabase.getInstance()
+                .getReference()
+                .child(this.brand)
+                .limitToLast(50);
 
         // Set up the toolbar
         setUpToolbar(view);

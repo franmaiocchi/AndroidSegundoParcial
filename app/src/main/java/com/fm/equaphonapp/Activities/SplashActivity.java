@@ -98,6 +98,18 @@ public class SplashActivity extends AppCompatActivity
         myRef.child("8").child("img").setValue(R.drawable.dpa4017);
         myRef.child("9").child("img").setValue(R.drawable.dpa4018);
 
+        myRef = database.getReference("Genelec");
+
+        myRef.child("0").child("img").setValue(R.drawable.genelec8010);
+        myRef.child("1").child("img").setValue(R.drawable.genelec8020);
+        myRef.child("2").child("img").setValue(R.drawable.genelec8030c);
+        myRef.child("3").child("img").setValue(R.drawable.genelec8040b);
+        myRef.child("4").child("img").setValue(R.drawable.genelec8050b);
+        myRef.child("5").child("img").setValue(R.drawable.genelecm030);
+        myRef.child("6").child("img").setValue(R.drawable.genelecm040);
+        myRef.child("7").child("img").setValue(R.drawable.genelec7040a);
+        myRef.child("8").child("img").setValue(R.drawable.genelec7050c);
+
         myRef = database.getReference("description-fragment");
 
         myRef.child("Powersoft").child("K10").child("imagen").setValue(R.drawable.k10);
@@ -144,6 +156,16 @@ public class SplashActivity extends AppCompatActivity
         myRef.child("DPA").child("4015 Wide Cardioid Microphone").child("imagen").setValue(R.drawable.dpa4015);
         myRef.child("DPA").child("4017 Shotgun Microphone").child("imagen").setValue(R.drawable.dpa4017);
         myRef.child("DPA").child("4018 Supercardioid Microphone").child("imagen").setValue(R.drawable.dpa4018);
+
+        myRef.child("Genelec").child("8010A").child("imagen").setValue(R.drawable.genelec8010);
+        myRef.child("Genelec").child("8020D").child("imagen").setValue(R.drawable.genelec8020);
+        myRef.child("Genelec").child("8030C").child("imagen").setValue(R.drawable.genelec8030c);
+        myRef.child("Genelec").child("8040B").child("imagen").setValue(R.drawable.genelec8040b);
+        myRef.child("Genelec").child("8050B").child("imagen").setValue(R.drawable.genelec8050b);
+        myRef.child("Genelec").child("M030").child("imagen").setValue(R.drawable.genelecm030);
+        myRef.child("Genelec").child("M040").child("imagen").setValue(R.drawable.genelecm040);
+        myRef.child("Genelec").child("7040A").child("imagen").setValue(R.drawable.genelec7040a);
+        myRef.child("Genelec").child("7050C").child("imagen").setValue(R.drawable.genelec7050c);
 
         asyncTask = new MyAsyncTask();
         asyncTask.execute();

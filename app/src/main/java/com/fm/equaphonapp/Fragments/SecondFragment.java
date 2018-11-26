@@ -97,6 +97,13 @@ public class SecondFragment extends Fragment
                     .child(this.brand)
                     .limitToLast(50);
         }
+        else if(this.brand.equals("beyerdynamic"))
+        {
+            query = FirebaseDatabase.getInstance()
+                    .getReference()
+                    .child(this.brand)
+                    .limitToLast(50);
+        }
         else
         {
             query = FirebaseDatabase.getInstance()

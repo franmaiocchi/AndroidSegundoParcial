@@ -85,6 +85,19 @@ public class SplashActivity extends AppCompatActivity
         myRef.child("6").child("img").setValue(R.drawable.dt990);
         myRef.child("7").child("img").setValue(R.drawable.cutomonepro);
 
+        myRef = database.getReference("DPA");
+
+        myRef.child("0").child("img").setValue(R.drawable.dpa4006);
+        myRef.child("1").child("img").setValue(R.drawable.dpa2006);
+        myRef.child("2").child("img").setValue(R.drawable.dpa4007);
+        myRef.child("3").child("img").setValue(R.drawable.dpa409091);
+        myRef.child("4").child("img").setValue(R.drawable.dpa4041);
+        myRef.child("5").child("img").setValue(R.drawable.dpa2011);
+        myRef.child("6").child("img").setValue(R.drawable.dpa4011);
+        myRef.child("7").child("img").setValue(R.drawable.dpa4015);
+        myRef.child("8").child("img").setValue(R.drawable.dpa4017);
+        myRef.child("9").child("img").setValue(R.drawable.dpa4018);
+
         myRef = database.getReference("description-fragment");
 
         myRef.child("Powersoft").child("K10").child("imagen").setValue(R.drawable.k10);
@@ -121,6 +134,16 @@ public class SplashActivity extends AppCompatActivity
         myRef.child("beyerdynamic").child("DT 990 Edition").child("imagen").setValue(R.drawable.dt990);
         myRef.child("beyerdynamic").child("CUSTOM ONE PRO PLUS").child("imagen").setValue(R.drawable.cutomonepro);
 
+        myRef.child("DPA").child("4006 Omnidirectional Microphone").child("imagen").setValue(R.drawable.dpa4006);
+        myRef.child("DPA").child("2006 Twin Diaphragm Omnidirectional Microphone").child("imagen").setValue(R.drawable.dpa2006);
+        myRef.child("DPA").child("4007 Omnidirectional Microphone").child("imagen").setValue(R.drawable.dpa4007);
+        myRef.child("DPA").child("4090 Omnidirectional Microphone").child("imagen").setValue(R.drawable.dpa409091);
+        myRef.child("DPA").child("4041-SP Omni Large Diaphragm Microphone").child("imagen").setValue(R.drawable.dpa4041);
+        myRef.child("DPA").child("2011 Twin Diaphragm Cardioid Microphone").child("imagen").setValue(R.drawable.dpa2011);
+        myRef.child("DPA").child("4011 Cardioid Microphone").child("imagen").setValue(R.drawable.dpa4011);
+        myRef.child("DPA").child("4015 Wide Cardioid Microphone").child("imagen").setValue(R.drawable.dpa4015);
+        myRef.child("DPA").child("4017 Shotgun Microphone").child("imagen").setValue(R.drawable.dpa4017);
+        myRef.child("DPA").child("4018 Supercardioid Microphone").child("imagen").setValue(R.drawable.dpa4018);
 
         asyncTask = new MyAsyncTask();
         asyncTask.execute();

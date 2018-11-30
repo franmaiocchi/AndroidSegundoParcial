@@ -6,4 +6,23 @@
     <string name="product_description">Secondary text</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="lbl_tech_spec1_sts">TIPO</string>
+    <string name="lbl_tech_spec2_sts">RESPUESTA EN FRECUENCIA</string>
+    <string name="lbl_tech_spec3_sts">PARLANTES</string>
+    <string name="lbl_tech_spec4_sts">SENSIBILIDAD</string>
+    <string name="lbl_tech_spec5_sts">CAPACIDAD DE POTENCIA</string>
+    <string name="lbl_tech_spec6_sts">IMPEDANCIA</string>
+    <string name="lbl_tech_spec7_sts">GABINETE</string>
+    <string name="lbl_tech_spec8_sts">TERMINACIÓN</string>
+    <string name="lbl_tech_spec9_sts">REJA DE PROTECCIÓN</string>
+    <string name="lbl_tech_spec10_sts">ANCLAJES</string>
+    <string name="lbl_tech_spec11_sts">CONECTORES</string>
+    <string name="lbl_tech_spec12_sts">DIMENSIONES</string>
+    <string name="lbl_tech_spec13_sts">PESO</string>
+
+    <string name="lbl_tech_spec1_pow">POTENCIA EN 2Ω</string>
+    <string name="lbl_tech_spec2_pow">POTENCIA EN 4Ω</string>
+    <string name="lbl_tech_spec3_pow">POTENCIA EN 8Ω</string>
+
 </resources>

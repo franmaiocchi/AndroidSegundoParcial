@@ -130,12 +130,70 @@ public class TechSpecsFragment extends android.support.v4.app.Fragment
 
             case "beyerdynamic":
                 // Inflate the layout for this fragment
-                v = inflater.inflate(R.layout.fragment_tech_specs, container, false);
+                v = inflater.inflate(R.layout.fragment_tech_specs_beyer, container, false);
+
+                final TextView lblOpPrinciple = v.findViewById(R.id.lblOpPrinciple);
+                final TextView lblImpedance = v.findViewById(R.id.lblImpedance);
+                final TextView lblFrequencyResponse = v.findViewById(R.id.lblFrequencyResponse);
+                final TextView lblSPL = v.findViewById(R.id.lblSPL);
+
+                final DatabaseReference dbRef_beyer = FirebaseDatabase.getInstance().getReference()
+                        .child("tech-specs-fragment")
+                        .child(brand)
+                        .child(modelo);
+
+                ValueEventListener eventListener_beyer = new ValueEventListener()
+                {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+                    {
+                        lblOpPrinciple.setText(dataSnapshot.child("OPERATING PRINCIPLE").getValue(String.class));
+                        lblImpedance.setText(dataSnapshot.child("IMPEDANCE").getValue(String.class));
+                        lblFrequencyResponse.setText(dataSnapshot.child("FREQUENCY RESPONSE").getValue(String.class));
+                        lblSPL.setText(dataSnapshot.child("SOUND PRESSURE LEVEL").getValue(String.class));
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError)
+                    {
+
+                    }
+                };
+                dbRef_beyer.addListenerForSingleValueEvent(eventListener_beyer);
+
                 break;
 
             case "DPA":
                 // Inflate the layout for this fragment
-                v = inflater.inflate(R.layout.fragment_tech_specs, container, false);
+                v = inflater.inflate(R.layout.fragment_tech_specs_dpa, container, false);
+
+                final TextView lblDirPattern = v.findViewById(R.id.lblDirPattern);
+                final TextView lblPrincipleOfOp = v.findViewById(R.id.lblPrincipleOfOp);
+                final TextView lblFrequencyRange = v.findViewById(R.id.lblFrequencyRange);
+                final TextView lblFrequencyRange2 = v.findViewById(R.id.lblFrequencyRange2);
+
+                final DatabaseReference dbRef_dpa = FirebaseDatabase.getInstance().getReference()
+                        .child("tech-specs-fragment")
+                        .child(brand)
+                        .child(modelo);
+
+                ValueEventListener eventListener_dpa = new ValueEventListener()
+                {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+                    {
+                        lblDirPattern.setText(dataSnapshot.child("Directional pattern").getValue(String.class));
+                        lblPrincipleOfOp.setText(dataSnapshot.child("Principle of operation").getValue(String.class));
+                        lblFrequencyRange.setText(dataSnapshot.child("Frequency range").getValue(String.class));
+                        lblFrequencyRange2.setText(dataSnapshot.child("Frequency range, ±2 dB").getValue(String.class));
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError)
+                    {
+
+                    }
+                };
+                dbRef_dpa.addListenerForSingleValueEvent(eventListener_dpa);
+
                 break;
 
             case "Genelec":

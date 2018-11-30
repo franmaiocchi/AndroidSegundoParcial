@@ -25,4 +25,14 @@
     <string name="lbl_tech_spec2_pow">POTENCIA EN 4Ω</string>
     <string name="lbl_tech_spec3_pow">POTENCIA EN 8Ω</string>
 
+    <string name="lbl_tech_spec1_beyer">OPERATING PRINCIPLE</string>
+    <string name="lbl_tech_spec2_beyer">NOMINAL IMPEDANCE HEADPHONES</string>
+    <string name="lbl_tech_spec3_beyer">HEADPHONE FREQUENCY RESPONSE</string>
+    <string name="lbl_tech_spec4_beyer">NOMINAL SOUND PRESSURE LEVEL</string>
+
+    <string name="lbl_tech_spec1_dpa">DIRECTIONAL PATTERN</string>
+    <string name="lbl_tech_spec2_dpa">PRINCIPLE OF OPERATION</string>
+    <string name="lbl_tech_spec3_dpa">FREQUENCY RANGE</string>
+    <string name="lbl_tech_spec4_dpa">FREQUENCY RANGE ±2 dB</string>
+
 </resources>

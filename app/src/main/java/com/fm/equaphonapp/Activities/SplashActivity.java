@@ -377,6 +377,96 @@ public class SplashActivity extends AppCompatActivity
         myRef.child("Powersoft").child("X8").child("potencia 4").setValue("3000W");
         myRef.child("Powersoft").child("X8").child("potencia 8").setValue("1600W");
 
+        myRef.child("beyerdynamic").child("Amiron wireless").child("OPERATING PRINCIPLE").setValue("Closed");
+        myRef.child("beyerdynamic").child("Amiron wireless").child("IMPEDANCE").setValue("32 ohms");
+        myRef.child("beyerdynamic").child("Amiron wireless").child("FREQUENCY RESPONSE").setValue("5-40,000 Hz");
+        myRef.child("beyerdynamic").child("Amiron wireless").child("SOUND PRESSURE LEVEL").setValue("100 dB");
+
+        myRef.child("beyerdynamic").child("T 1").child("OPERATING PRINCIPLE").setValue("Semi-Open");
+        myRef.child("beyerdynamic").child("T 1").child("IMPEDANCE").setValue("600 ohms");
+        myRef.child("beyerdynamic").child("T 1").child("FREQUENCY RESPONSE").setValue("5 - 50,000 Hz");
+        myRef.child("beyerdynamic").child("T 1").child("SOUND PRESSURE LEVEL").setValue("102 dB (1mW / 500 Hz)");
+
+        myRef.child("beyerdynamic").child("T 5 p").child("OPERATING PRINCIPLE").setValue("Closed");
+        myRef.child("beyerdynamic").child("T 5 p").child("IMPEDANCE").setValue("32 ohms");
+        myRef.child("beyerdynamic").child("T 5 p").child("FREQUENCY RESPONSE").setValue("5 - 50,000 Hz");
+        myRef.child("beyerdynamic").child("T 5 p").child("SOUND PRESSURE LEVEL").setValue("102 dB (1mW / 500 Hz)");
+
+        myRef.child("beyerdynamic").child("Amiron home").child("OPERATING PRINCIPLE").setValue("Open");
+        myRef.child("beyerdynamic").child("Amiron home").child("IMPEDANCE").setValue("250 ohms");
+        myRef.child("beyerdynamic").child("Amiron home").child("FREQUENCY RESPONSE").setValue("5-40,000 Hz");
+        myRef.child("beyerdynamic").child("Amiron home").child("SOUND PRESSURE LEVEL").setValue("102 dB (1 mW / 500 Hz)");
+
+        myRef.child("beyerdynamic").child("T 51 i").child("OPERATING PRINCIPLE").setValue("Closed");
+        myRef.child("beyerdynamic").child("T 51 i").child("IMPEDANCE").setValue("32 ohms");
+        myRef.child("beyerdynamic").child("T 51 i").child("FREQUENCY RESPONSE").setValue("10 Hz - 23,000 Hz");
+        myRef.child("beyerdynamic").child("T 51 i").child("SOUND PRESSURE LEVEL").setValue("111 dB");
+
+        myRef.child("beyerdynamic").child("DT 880 Edition").child("OPERATING PRINCIPLE").setValue("Semi-Open");
+        myRef.child("beyerdynamic").child("DT 880 Edition").child("IMPEDANCE").setValue("32/250/600 ohms");
+        myRef.child("beyerdynamic").child("DT 880 Edition").child("FREQUENCY RESPONSE").setValue("5 Hz - 35,000 Hz");
+        myRef.child("beyerdynamic").child("DT 880 Edition").child("SOUND PRESSURE LEVEL").setValue("96 dB");
+
+        myRef.child("beyerdynamic").child("DT 990 Edition").child("OPERATING PRINCIPLE").setValue("Open");
+        myRef.child("beyerdynamic").child("DT 990 Edition").child("IMPEDANCE").setValue("32/250/600 ohms");
+        myRef.child("beyerdynamic").child("DT 990 Edition").child("FREQUENCY RESPONSE").setValue("5 - 35.000 Hz");
+        myRef.child("beyerdynamic").child("DT 990 Edition").child("SOUND PRESSURE LEVEL").setValue("96 dB");
+
+        myRef.child("beyerdynamic").child("CUSTOM ONE PRO PLUS").child("OPERATING PRINCIPLE").setValue("Closed");
+        myRef.child("beyerdynamic").child("CUSTOM ONE PRO PLUS").child("IMPEDANCE").setValue("16 ohms");
+        myRef.child("beyerdynamic").child("CUSTOM ONE PRO PLUS").child("FREQUENCY RESPONSE").setValue("5 Hz - 35,000 Hz");
+        myRef.child("beyerdynamic").child("CUSTOM ONE PRO PLUS").child("SOUND PRESSURE LEVEL").setValue("96 dB");
+
+        myRef.child("DPA").child("4006 Omnidirectional Microphone").child("Directional pattern").setValue("Omnidirectional");
+        myRef.child("DPA").child("4006 Omnidirectional Microphone").child("Principle of operation").setValue("Pressure");
+        myRef.child("DPA").child("4006 Omnidirectional Microphone").child("Frequency range").setValue("10 Hz - 20 kHz");
+        myRef.child("DPA").child("4006 Omnidirectional Microphone").child("Frequency range, ±2 dB").setValue("10 Hz - 20 kHz");
+
+        myRef.child("DPA").child("2006 Twin Diaphragm Omnidirectional Microphone").child("Directional pattern").setValue("Omnidirectional");
+        myRef.child("DPA").child("2006 Twin Diaphragm Omnidirectional Microphone").child("Principle of operation").setValue("Pressure");
+        myRef.child("DPA").child("2006 Twin Diaphragm Omnidirectional Microphone").child("Frequency range").setValue("20 Hz - 20 kHz");
+        myRef.child("DPA").child("2006 Twin Diaphragm Omnidirectional Microphone").child("Frequency range, ±2 dB").setValue("50 Hz - 20 kHz with typ. 3 dB soft boost at 14 kHz");
+
+        myRef.child("DPA").child("4007 Omnidirectional Microphone").child("Directional pattern").setValue("Omnidirectional");
+        myRef.child("DPA").child("4007 Omnidirectional Microphone").child("Principle of operation").setValue("Pressure");
+        myRef.child("DPA").child("4007 Omnidirectional Microphone").child("Frequency range").setValue("10 Hz - 40 kHz");
+        myRef.child("DPA").child("4007 Omnidirectional Microphone").child("Frequency range, ±2 dB").setValue("10 Hz - 40 kHz");
+
+        myRef.child("DPA").child("4090 Omnidirectional Microphone").child("Directional pattern").setValue("Omnidirectional");
+        myRef.child("DPA").child("4090 Omnidirectional Microphone").child("Principle of operation").setValue("Pressure");
+        myRef.child("DPA").child("4090 Omnidirectional Microphone").child("Frequency range").setValue("20 Hz - 20 kHz");
+        myRef.child("DPA").child("4090 Omnidirectional Microphone").child("Frequency range, ±2 dB").setValue("20 Hz - 20 kHz");
+
+        myRef.child("DPA").child("4041-SP Omni Large Diaphragm Microphone").child("Directional pattern").setValue("Omnidirectional");
+        myRef.child("DPA").child("4041-SP Omni Large Diaphragm Microphone").child("Principle of operation").setValue("Pressure");
+        myRef.child("DPA").child("4041-SP Omni Large Diaphragm Microphone").child("Frequency range").setValue("20 Hz - 20 kHz");
+        myRef.child("DPA").child("4041-SP Omni Large Diaphragm Microphone").child("Frequency range, ±2 dB").setValue("20 Hz - 20 kHz with 4 - 6 dB soft boost at 8 kHz");
+
+        myRef.child("DPA").child("2011 Twin Diaphragm Cardioid Microphone").child("Directional pattern").setValue("Cardioid");
+        myRef.child("DPA").child("2011 Twin Diaphragm Cardioid Microphone").child("Principle of operation").setValue("Pressure gradient, with interference tube");
+        myRef.child("DPA").child("2011 Twin Diaphragm Cardioid Microphone").child("Frequency range").setValue("20 Hz - 20 kHz");
+        myRef.child("DPA").child("2011 Twin Diaphragm Cardioid Microphone").child("Frequency range, ±2 dB").setValue("50 Hz - 17 kHz with 3 dB soft boost at 12 kHz");
+
+        myRef.child("DPA").child("4011 Cardioid Microphone").child("Directional pattern").setValue("Cardioid");
+        myRef.child("DPA").child("4011 Cardioid Microphone").child("Principle of operation").setValue("Pressure gradient");
+        myRef.child("DPA").child("4011 Cardioid Microphone").child("Frequency range").setValue("20 Hz - 20 kHz");
+        myRef.child("DPA").child("4011 Cardioid Microphone").child("Frequency range, ±2 dB").setValue("40 Hz - 20 kHz");
+
+        myRef.child("DPA").child("4015 Wide Cardioid Microphone").child("Directional pattern").setValue("Wide cardioid");
+        myRef.child("DPA").child("4015 Wide Cardioid Microphone").child("Principle of operation").setValue("Pressure gradient");
+        myRef.child("DPA").child("4015 Wide Cardioid Microphone").child("Frequency range").setValue("20 Hz - 20 kHz");
+        myRef.child("DPA").child("4015 Wide Cardioid Microphone").child("Frequency range, ±2 dB").setValue("40 Hz - 20 kHz");
+
+        myRef.child("DPA").child("4017 Shotgun Microphone").child("Directional pattern").setValue("Supercardioid, lobe-shaped");
+        myRef.child("DPA").child("4017 Shotgun Microphone").child("Principle of operation").setValue("Pressure gradient, with interference tube");
+        myRef.child("DPA").child("4017 Shotgun Microphone").child("Frequency range").setValue("20 Hz - 20 kHz, permanent third order high pass filter at 50 Hz");
+        myRef.child("DPA").child("4017 Shotgun Microphone").child("Frequency range, ±2 dB").setValue("70 Hz - 18 kHz with typ. 3 dB soft boost at 15 kHz");
+
+        myRef.child("DPA").child("4018 Supercardioid Microphone").child("Directional pattern").setValue("Supercardioid");
+        myRef.child("DPA").child("4018 Supercardioid Microphone").child("Principle of operation").setValue("Pressure gradient");
+        myRef.child("DPA").child("4018 Supercardioid Microphone").child("Frequency range").setValue("20 Hz - 20 kHz");
+        myRef.child("DPA").child("4018 Supercardioid Microphone").child("Frequency range, ±2 dB").setValue("40 Hz - 18 kHz");
+
         asyncTask = new MyAsyncTask();
         asyncTask.execute();
     }

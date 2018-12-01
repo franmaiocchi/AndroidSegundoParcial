@@ -77,16 +77,6 @@ public class SecondFragment extends Fragment
             this.brand = stickyEvent.firstMessage;
         }
 
-/*        // create ContextThemeWrapper from the original Activity Context with the custom theme
-        final Context contextThemeWrapper = new ContextThemeWrapper(getActivity(), R.style.Theme_STS);
-
-        // clone the inflater using the ContextThemeWrapper
-        LayoutInflater localInflater = inflater.cloneInContext(contextThemeWrapper);
-
-        // inflate the layout using the cloned inflater, not default inflater
-        View view = localInflater.inflate(R.layout.fragment_second, container, false);*/
-
-        getActivity().setTheme(R.style.Theme_STS);
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_second, container, false);
 

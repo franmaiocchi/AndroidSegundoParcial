@@ -7,7 +7,7 @@
     <color name="toolbarIconColor">@color/textColorPrimary</color>
     <color name="loginPageBackgroundColor">#FFFFFF</color>
     <color name="productGridBackgroundColor">#FFFFFF</color>
-    <color name="colorControlActivated">#FBB8AC</color>
+    <color name="colorControlActivated">#3f6a7d</color>
     <color name="stsPrimary">#EB2229</color>
     <color name="stsPLight">#FF6153</color>
     <color name="stsPDark">#AF0000</color>

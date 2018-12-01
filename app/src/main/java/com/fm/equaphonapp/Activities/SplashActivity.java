@@ -540,7 +540,6 @@ public class SplashActivity extends AppCompatActivity
 
                 publishProgress(i*10);
             }
-
             return true;
         }
 

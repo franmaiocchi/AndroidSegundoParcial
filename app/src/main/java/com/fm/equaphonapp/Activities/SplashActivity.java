@@ -165,7 +165,7 @@ public class SplashActivity extends AppCompatActivity
         myRef.child("Genelec").child("M030").child("imagen").setValue(R.drawable.genelecm030);
         myRef.child("Genelec").child("M040").child("imagen").setValue(R.drawable.genelecm040);
         myRef.child("Genelec").child("7040A").child("imagen").setValue(R.drawable.genelec7040a);
-        myRef.child("Genelec").child("7050C").child("imagen").setValue(R.drawable.genelec7050c);*/
+        myRef.child("Genelec").child("7050C").child("imagen").setValue(R.drawable.genelec7050c);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("tech-specs-fragment");
@@ -467,6 +467,52 @@ public class SplashActivity extends AppCompatActivity
         myRef.child("DPA").child("4018 Supercardioid Microphone").child("Frequency range").setValue("20 Hz - 20 kHz");
         myRef.child("DPA").child("4018 Supercardioid Microphone").child("Frequency range, ±2 dB").setValue("40 Hz - 18 kHz");
 
+        myRef.child("Genelec").child("8010A").child("SPL").setValue("96 dB");
+        myRef.child("Genelec").child("8010A").child("Frequency response ± 2,5 dB").setValue("74 Hz - 20 kHz");
+        myRef.child("Genelec").child("8010A").child("Frequency response - 6 dB").setValue("67 Hz - 25 kHz");
+        myRef.child("Genelec").child("8010A").child("Transducer power handling").setValue("Woofer 25 W + Tweeter 25 W");
+
+
+        myRef.child("Genelec").child("8020D").child("SPL").setValue("100 dB");
+        myRef.child("Genelec").child("8020D").child("Frequency response ± 2,5 dB").setValue("62 Hz - 20 kHz");
+        myRef.child("Genelec").child("8020D").child("Frequency response - 6 dB").setValue("56 Hz – 25 kHz");
+        myRef.child("Genelec").child("8020D").child("Transducer power handling").setValue("Woofer 50 W + Tweeter 50 W ");
+
+        myRef.child("Genelec").child("8030C").child("SPL").setValue("104 dB");
+        myRef.child("Genelec").child("8030C").child("Frequency response ± 2,5 dB").setValue("54 Hz - 20 kHz");
+        myRef.child("Genelec").child("8030C").child("Frequency response - 6 dB").setValue("47 Hz – 25 kHz");
+        myRef.child("Genelec").child("8030C").child("Transducer power handling").setValue("Woofer 50 W + Tweeter 50 W ");
+
+        myRef.child("Genelec").child("8040B").child("SPL").setValue("105 dB");
+        myRef.child("Genelec").child("8040B").child("Frequency response ± 2,5 dB").setValue("48 Hz - 20 kHz");
+        myRef.child("Genelec").child("8040B").child("Frequency response - 6 dB").setValue("41 Hz – 25 kHz");
+        myRef.child("Genelec").child("8040B").child("Transducer power handling").setValue("Woofer 90 W + Tweeter 90 W");
+
+        myRef.child("Genelec").child("8050B").child("SPL").setValue("110 dB");
+        myRef.child("Genelec").child("8050B").child("Frequency response ± 2,5 dB").setValue("38 Hz - 20 kHz");
+        myRef.child("Genelec").child("8050B").child("Frequency response - 6 dB").setValue("32 Hz – 25 kHz");
+        myRef.child("Genelec").child("8050B").child("Transducer power handling").setValue("Woofer 150 W + Tweeter 120 W");
+
+        myRef.child("Genelec").child("M030").child("SPL").setValue("105 dB");
+        myRef.child("Genelec").child("M030").child("Frequency response ± 2,5 dB").setValue("58 Hz - 20 kHz");
+        myRef.child("Genelec").child("M030").child("Frequency response - 6 dB").setValue("53 Hz - 23 kHz");
+        myRef.child("Genelec").child("M030").child("Transducer power handling").setValue("Woofer 80 W + Tweeter 50 W ");
+
+        myRef.child("Genelec").child("M040").child("SPL").setValue("107 dB");
+        myRef.child("Genelec").child("M040").child("Frequency response ± 2,5 dB").setValue("48 Hz - 20 kHz");
+        myRef.child("Genelec").child("M040").child("Frequency response - 6 dB").setValue("44 Hz - 21 kHz");
+        myRef.child("Genelec").child("M040").child("Transducer power handling").setValue("Woofer 80 W + Tweeter 50 W ");
+
+        myRef.child("Genelec").child("7040A").child("SPL").setValue("100 dB");
+        myRef.child("Genelec").child("7040A").child("Frequency response ± 2,5 dB").setValue("-");
+        myRef.child("Genelec").child("7040A").child("Frequency response - 6 dB").setValue("30 Hz - 85 Hz");
+        myRef.child("Genelec").child("7040A").child("Transducer power handling").setValue("50 W");
+
+        myRef.child("Genelec").child("7050C").child("SPL").setValue("103 dB");
+        myRef.child("Genelec").child("7050C").child("Frequency response ± 2,5 dB").setValue("-");
+        myRef.child("Genelec").child("7050C").child("Frequency response - 6 dB").setValue("24 Hz - 85 Hz / LFE 24 Hz - 120 Hz");
+        myRef.child("Genelec").child("7050C").child("Transducer power handling").setValue("130 W");*/
+
         asyncTask = new MyAsyncTask();
         asyncTask.execute();
     }
@@ -475,7 +521,7 @@ public class SplashActivity extends AppCompatActivity
     {
         try
         {
-            Thread.sleep(200);
+            Thread.sleep(300);
         } catch (InterruptedException e)
         {
         }

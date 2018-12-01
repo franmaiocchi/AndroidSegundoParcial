@@ -35,4 +35,10 @@
     <string name="lbl_tech_spec3_dpa">FREQUENCY RANGE</string>
     <string name="lbl_tech_spec4_dpa">FREQUENCY RANGE ±2 dB</string>
 
+    <string name="lbl_tech_spec1_genelec">SPL</string>
+    <string name="lbl_tech_spec2_genelec">FREQUENCY RESPONSE ± 2.5 dB</string>
+    <string name="lbl_tech_spec3_genelec">FREQUENCY RESPONSE - 6 dB</string>
+    <string name="lbl_tech_spec4_genelec">TRANSDUCER POWER HANDLING</string>
+
+
 </resources>

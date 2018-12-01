@@ -198,7 +198,35 @@ public class TechSpecsFragment extends android.support.v4.app.Fragment
 
             case "Genelec":
                 // Inflate the layout for this fragment
-                v = inflater.inflate(R.layout.fragment_tech_specs, container, false);
+                v = inflater.inflate(R.layout.fragment_tech_specs_genelec, container, false);
+
+                final TextView lblSpl = v.findViewById(R.id.lblSPL);
+                final TextView lblFrequencyResponse25 = v.findViewById(R.id.lblFrequencyResponse25);
+                final TextView lblFrequencyResponse6 = v.findViewById(R.id.lblFrequencyResponse6);
+                final TextView lblPowerHandling = v.findViewById(R.id.lblPowerHandling);
+
+                final DatabaseReference dbRef_genelec = FirebaseDatabase.getInstance().getReference()
+                        .child("tech-specs-fragment")
+                        .child(brand)
+                        .child(modelo);
+
+                ValueEventListener eventListener_genelec = new ValueEventListener()
+                {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+                    {
+                        lblSpl.setText(dataSnapshot.child("SPL").getValue(String.class));
+                        lblFrequencyResponse25.setText(dataSnapshot.child("Frequency response ± 2,5 dB").getValue(String.class));
+                        lblFrequencyResponse6.setText(dataSnapshot.child("Frequency response - 6 dB").getValue(String.class));
+                        lblPowerHandling.setText(dataSnapshot.child("Transducer power handling").getValue(String.class));
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError)
+                    {
+
+                    }
+                };
+                dbRef_genelec.addListenerForSingleValueEvent(eventListener_genelec);
                 break;
         }
 

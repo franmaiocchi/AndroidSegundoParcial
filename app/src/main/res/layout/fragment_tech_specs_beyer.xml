@@ -26,6 +26,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:text="@string/lbl_tech_spec1_beyer"
+            android:textColor="@color/textColorPrimary"
             app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -38,6 +39,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:text="@string/lbl_tech_spec2_beyer"
+            android:textColor="@color/textColorPrimary"
             app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lblTechSpec1" />
@@ -50,6 +52,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:text="@string/lbl_tech_spec3_beyer"
+            android:textColor="@color/textColorPrimary"
             app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lblTechSpec2" />
@@ -62,6 +65,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:text="@string/lbl_tech_spec4_beyer"
+            android:textColor="@color/textColorPrimary"
             app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lblTechSpec3" />
@@ -74,6 +78,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:text="9000W"
+            android:textColor="@color/textColorPrimary"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline"
@@ -87,6 +92,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:text="5200W"
+            android:textColor="@color/textColorPrimary"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline"
@@ -100,6 +106,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:text="2700W"
+            android:textColor="@color/textColorPrimary"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline"
@@ -113,6 +120,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:text="2700W"
+            android:textColor="@color/textColorPrimary"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline"

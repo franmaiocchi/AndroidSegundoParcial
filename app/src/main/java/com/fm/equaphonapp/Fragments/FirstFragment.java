@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -143,6 +144,21 @@ public class FirstFragment extends Fragment
         {
             activity.setSupportActionBar(toolbar);
         }
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener()
+        {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem)
+            {
+                switch (menuItem.getItemId())
+                {
+                    case R.id.location:
+                        ((NavigationHost) getActivity()).navigateTo(new LocationFragment(), true); // Navigate to the next Fragment
+                        break;
+
+                }
+                return true;
+            }
+        });
     }
 
     @Override

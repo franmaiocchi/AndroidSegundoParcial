@@ -165,9 +165,9 @@ public class SplashActivity extends AppCompatActivity
         myRef.child("Genelec").child("M030").child("imagen").setValue(R.drawable.genelecm030);
         myRef.child("Genelec").child("M040").child("imagen").setValue(R.drawable.genelecm040);
         myRef.child("Genelec").child("7040A").child("imagen").setValue(R.drawable.genelec7040a);
-        myRef.child("Genelec").child("7050C").child("imagen").setValue(R.drawable.genelec7050c);
+        myRef.child("Genelec").child("7050C").child("imagen").setValue(R.drawable.genelec7050c);*/
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
+/*        FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("tech-specs-fragment");
 
         myRef.child("STS").child("Coax12").child("tipo").setValue("Dos vías pasivas, Full Range");

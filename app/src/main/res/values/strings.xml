@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Equaphon</string>
     <string name="filter_title">Filter</string>
+    <string name="location_title">Ubicación</string>
     <string name="search_title">Search</string>
     <string name="product_title">Title</string>
     <string name="product_description">Secondary text</string>
